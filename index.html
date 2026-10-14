@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portfolio RH · NURU HR DIGITAL PORTFOLIO</title>
+<meta name="description" content="Portfolio personnel de candidature au stage RH : outils de suivi RH réalisés sur données fictives.">
+<style>
+:root { --fond:#f7f7f4; --surface:#ffffff; --encre:#16181d; --encre-2:#545861; --trait:#e3e2dc;
+  --accent:#1f5f8b; --accent-doux:#e8f0f7; --bandeau:#fff4d6; --bandeau-trait:#e0b44a; --attention:#8a5a00; }
+@media (prefers-color-scheme: dark) { :root { --fond:#121314; --surface:#1c1d1f; --encre:#ecebe6; --encre-2:#b3b2ab;
+  --trait:#33343a; --accent:#7db7e0; --accent-doux:#1d2a35; --bandeau:#3a3220; --bandeau-trait:#b48a2c; --attention:#f0c060; } }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin:0; background:var(--fond); color:var(--encre); font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; }
+a { color: var(--accent); overflow-wrap: anywhere; }
+.fictif { background:var(--bandeau); border-bottom:2px solid var(--bandeau-trait); padding:8px 16px; text-align:center; font-size:.9rem; font-weight:600; }
+.conteneur { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+nav.sommaire { position: sticky; top: 0; z-index: 5; background: var(--surface); border-bottom: 1px solid var(--trait); }
+nav.sommaire ul { list-style:none; margin:0 auto; padding:0 16px; max-width:1080px; display:flex; gap:4px; overflow-x:auto; white-space:nowrap; }
+nav.sommaire a { display:block; padding:10px 10px; color:var(--encre-2); text-decoration:none; font-size:.9rem; }
+nav.sommaire a:hover, nav.sommaire a:focus-visible { color: var(--encre); }
+section { padding: 40px 0 8px; scroll-margin-top: 48px; }
+h1 { font-size: clamp(1.8rem, 5vw, 2.6rem); line-height:1.15; margin: 0 0 8px; }
+h2 { font-size: 1.45rem; margin: 0 0 16px; }
+h3 { font-size: 1.05rem; margin: 0 0 6px; }
+.chapeau { font-size: 1.1rem; color: var(--encre-2); max-width: 760px; }
+.hero { padding: 48px 0 16px; }
+.boutons { display:flex; flex-wrap:wrap; gap:10px; margin: 20px 0; }
+.bouton { display:inline-block; padding:10px 16px; border-radius:8px; text-decoration:none; font-weight:600; border:1px solid var(--trait); color:var(--encre); background:var(--surface); }
+.bouton.principal { background:var(--accent); border-color:var(--accent); color:#fff; }
+@media (prefers-color-scheme: dark) { .bouton.principal { color:#0b1620; } }
+.mention { border-left: 4px solid var(--bandeau-trait); background: var(--surface); padding: 10px 14px; border-radius: 6px; font-size: .92rem; }
+.grille { display:grid; gap:16px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+.carte { background:var(--surface); border:1px solid var(--trait); border-radius:12px; padding:18px; min-width:0; }
+.carte p { margin: 6px 0 0; }
+.etiquette { display:inline-block; font-size:.75rem; font-weight:600; letter-spacing:.02em; text-transform:uppercase; color:var(--accent); background:var(--accent-doux); padding:2px 8px; border-radius:4px; margin-bottom:8px; }
+.coordonnees { list-style:none; padding:0; margin:0; display:grid; gap:6px; }
+.coordonnees li { overflow-wrap:anywhere; }
+.a-completer { color: var(--attention); font-weight: 600; font-style: italic; }
+.defile { overflow-x:auto; border:1px solid var(--trait); border-radius:10px; background:var(--surface); }
+table { border-collapse: collapse; width: 100%; font-size: .93rem; }
+th, td { text-align:left; padding:10px 12px; border-bottom:1px solid var(--trait); vertical-align: top; }
+th { color: var(--encre-2); font-weight: 600; white-space: nowrap; }
+tr:last-child td { border-bottom: 0; }
+figure { margin:0; background:var(--surface); border:1px solid var(--trait); border-radius:12px; overflow:hidden; }
+figure img { display:block; width:100%; height:auto; border-bottom:1px solid var(--trait); }
+figure.mobile img { max-height: 520px; object-fit: cover; object-position: top; }
+figcaption { padding: 10px 14px; font-size: .9rem; color: var(--encre-2); }
+.chiffre { font-size: 2rem; font-weight: 700; line-height: 1.1; }
+ul.liste { padding-left: 1.2em; } ul.liste li { margin: 4px 0; }
+.ok { color: #0a7a0a; font-weight: 600; } .ko { color: #c62828; font-weight: 600; }
+@media (prefers-color-scheme: dark) { .ok { color:#5cd65c; } .ko { color:#ff7b7b; } }
+footer { color: var(--encre-2); font-size: .85rem; padding: 32px 0 40px; border-top: 1px solid var(--trait); margin-top: 40px; }
+blockquote { margin: 12px 0; padding: 10px 14px; border-left: 4px solid var(--bandeau-trait); background: var(--surface); border-radius: 6px; color: var(--encre-2); }
+pre { white-space: pre-wrap; overflow-wrap: anywhere; background: var(--surface); border:1px solid var(--trait); border-radius: 10px; padding: 14px; font: .9rem/1.5 ui-monospace, Consolas, monospace; }
+code { font-family: ui-monospace, Consolas, monospace; font-size: .9em; overflow-wrap: anywhere; }
+li.case { list-style: none; margin-left: -1.2em; }
+.document h1 { margin-top: 24px; } .document h2 { margin-top: 28px; font-size: 1.2rem; }
+@media print { nav.sommaire, .boutons { display:none; } }
+</style>
+</head>
+<body>
+<div class="fictif" role="note">Réalisation personnelle de démonstration · données fictives · projet indépendant de Nuru, sans partenariat ni validation de Nuru.</div>
+
+<nav class="sommaire" aria-label="Sommaire"><ul>
+  <li><a href="#presentation">Présentation</a></li><li><a href="#formation">Formation</a></li>
+  <li><a href="#competences">Compétences</a></li><li><a href="#problemes">Problèmes RH</a></li>
+  <li><a href="#realisations">Réalisations</a></li><li><a href="#insights">Insights</a></li><li><a href="#documents">Documents</a></li>
+  <li><a href="#ia">IA responsable</a></li><li><a href="#tests">Tests et limites</a></li><li><a href="#contact">Contact</a></li>
+</ul></nav>
+<main class="conteneur">
+<section class="hero" id="presentation">
+  <span class="etiquette">Portfolio de candidature</span>
+  <h1><span class="a-completer">À compléter</span></h1>
+  <p class="chapeau"><strong>Candidat(e) au stage en Ressources Humaines</strong> · Goma, République démocratique du Congo</p>
+  <p class="chapeau">Titulaire d&#x27;un Master en Management des organisations et d&#x27;une Licence en Sciences administratives et Management, je me suis formé(e) à la gestion des ressources humaines dans le contexte humanitaire et à l&#x27;usage professionnel de l&#x27;intelligence artificielle avec Claude. Ce portfolio montre, sur un cas entièrement fictif, comment j&#x27;organiserais le suivi administratif RH : registres fiables, alertes d&#x27;échéance, recrutement traçable, tableaux de bord et documents clairs.</p>
+  <div class="boutons">
+    <a class="bouton principal" href="dashboard/tableau_de_bord_rh.html">Voir le tableau de bord RH</a>
+    <a class="bouton" href="#realisations">Les réalisations</a>
+    <a class="bouton" href="#contact">Me contacter</a>
+  </div>
+  <p class="mention"><strong>Réalisation personnelle de démonstration.</strong> NURU HR DIGITAL PORTFOLIO accompagne
+  ma candidature au stage en Ressources Humaines chez Nuru à Goma. Il est <strong>indépendant de Nuru</strong> :
+  il n'a été ni commandé, ni validé, ni utilisé par Nuru, et ne repose sur aucune donnée de Nuru. Toutes les personnes
+  et tous les chiffres présentés sont <strong>fictifs</strong>. Il ne décrit aucune expérience professionnelle.</p>
+</section>
+
+<section id="formation">
+  <h2>Profil et formation</h2>
+  <p>Ma formation en <strong>management des organisations</strong> m'a appris à raisonner en processus, en rôles et
+  en indicateurs. C'est ce regard que j'applique ici à la fonction RH : qui fait quoi, à quel moment, avec quelle trace
+  écrite et quel indicateur de suivi. Ma formation en GRH dans le contexte humanitaire m'a sensibilisé(e) à l'équité,
+  à la confidentialité et à la redevabilité. Ma formation en IA avec Claude m'a appris à utiliser un assistant IA de
+  façon encadrée.</p>
+  <div class="grille"><div class="carte"><span class="etiquette">Diplôme</span><h3>Master en Management des organisations</h3><p>Établissement : <span class="a-completer">À compléter</span><br>Année : <span class="a-completer">À compléter</span></p></div><div class="carte"><span class="etiquette">Diplôme</span><h3>Licence en Sciences administratives et Management</h3><p>Établissement : <span class="a-completer">À compléter</span><br>Année : <span class="a-completer">À compléter</span></p></div><div class="carte"><span class="etiquette">Formation certifiée</span><h3>Introduction à la gestion des ressources humaines dans le contexte humanitaire</h3><p>Établissement : <span class="a-completer">À compléter</span><br>Année : <span class="a-completer">À compléter</span></p></div><div class="carte"><span class="etiquette">Formation certifiée</span><h3>Intelligence artificielle appliquée au monde professionnel avec Claude</h3><p>Établissement : <span class="a-completer">À compléter</span><br>Année : <span class="a-completer">À compléter</span></p></div></div>
+</section>
+
+<section id="competences">
+  <h2>Compétences techniques</h2>
+  <p>Le niveau indiqué est déclaré par moi-même. La dernière colonne précise <strong>ce que ce projet démontre
+  réellement</strong> pour chaque outil.</p>
+  <div class="defile"><table>
+    <thead><tr><th scope="col">Outil</th><th scope="col">Niveau déclaré</th><th scope="col">Utilisation dans ce projet</th></tr></thead>
+    <tbody><tr><th scope="row">Excel</th><td><span class="a-completer">À compléter</span></td><td>Registres CSV conçus pour Excel en français (séparateur « ; », accents) et exports CSV du tableau de bord. Pas de classeur .xlsx avancé (formules, tableaux croisés) dans ce projet.</td></tr><tr><th scope="row">SQL</th><td><span class="a-completer">À compléter</span></td><td>Base SQLite de 8 tables avec contraintes d&#x27;intégrité, 6 requêtes de consultation, requêtes de recoupement utilisées dans les tests.</td></tr><tr><th scope="row">Python</th><td><span class="a-completer">À compléter</span></td><td>Génération des données fictives, calculs RH, modules, tableau de bord et 76 tests automatisés, réalisés avec l&#x27;assistance de Claude Code (voir « IA responsable »).</td></tr><tr><th scope="row">R</th><td><span class="a-completer">À compléter</span></td><td>Non utilisé dans ce projet.</td></tr><tr><th scope="row">Power BI</th><td><span class="a-completer">À compléter</span></td><td>Non utilisé dans ce projet. Les tables de data/processed sont prêtes à être importées dans Power BI.</td></tr></tbody>
+  </table></div>
+</section>
+
+<section id="problemes">
+  <h2>Les problèmes RH que le projet cherche à résoudre</h2>
+  <div class="grille"><div class="carte"><h3>Dossiers difficiles à retrouver</h3><p>Plan de classement, règles de nommage et contrôle trimestriel des dossiers individuels.</p><p><a href="portfolio/pages/procedure_archivage_dossiers.html">Procédure d&#x27;archivage →</a></p></div><div class="carte"><h3>Contrats qui arrivent à échéance sans décision préparée</h3><p>Alertes à 90, 60 et 30 jours ; la décision reste au responsable RH.</p><p><a href="hr_admin/module_suivi_rh.html#echeances">Module de suivi : échéances →</a></p></div><div class="carte"><h3>Effectifs mal connus d&#x27;un mois à l&#x27;autre</h3><p>Registre mensuel calculé : effectif de début, entrées, sorties, effectif de fin.</p><p><a href="hr_admin/module_suivi_rh.html#effectifs">Module de suivi : effectifs →</a></p></div><div class="carte"><h3>Absences, congés et stagiaires suivis dans des fichiers dispersés</h3><p>Registre unique, catégories confidentielles pour la santé, alertes de fin de stage.</p><p><a href="hr_admin/module_suivi_rh.html#absences">Module de suivi : absences →</a></p></div><div class="carte"><h3>Recrutement peu traçable</h3><p>Processus en 8 étapes, prochaine action et responsable, décisions humaines enregistrées.</p><p><a href="recruitment/module_recrutement.html">Module de recrutement →</a></p></div><div class="carte"><h3>Pas de vue d&#x27;ensemble pour piloter</h3><p>Tableau de bord : indicateurs, graphiques, actions à effectuer, export CSV.</p><p><a href="dashboard/tableau_de_bord_rh.html">Tableau de bord RH →</a></p></div><div class="carte"><h3>Rapports rédigés à la main, chiffres incohérents</h3><p>Rapport mensuel généré à partir des mêmes données que les outils.</p><p><a href="portfolio/pages/rapport_mensuel_octobre_2026.html">Rapport mensuel →</a></p></div></div>
+</section>
+
+<section id="realisations">
+  <h2>Réalisations</h2>
+  <p>Trois outils consultables dans le navigateur, sans installation, construits à partir de 30 collaborateurs,
+  6 stagiaires et 10 candidatures fictifs :</p>
+  <div class="boutons">
+    <a class="bouton principal" href="dashboard/tableau_de_bord_rh.html">Tableau de bord RH</a>
+    <a class="bouton" href="hr_admin/module_suivi_rh.html">Module de suivi administratif</a>
+    <a class="bouton" href="recruitment/module_recrutement.html">Module de recrutement</a>
+  </div>
+  <div class="grille"><figure><a href="assets/captures/tableau_de_bord_bureau.png"><img src="assets/captures/tableau_de_bord_bureau.png" alt="Tableau de bord RH sur ordinateur (thème clair)" loading="lazy"></a><figcaption>Tableau de bord RH sur ordinateur (thème clair) · données fictives</figcaption></figure><figure class=mobile><a href="assets/captures/tableau_de_bord_mobile.png"><img src="assets/captures/tableau_de_bord_mobile.png" alt="Tableau de bord RH sur téléphone (390 px)" loading="lazy"></a><figcaption>Tableau de bord RH sur téléphone (390 px) · données fictives</figcaption></figure><figure><a href="assets/captures/module_rh_echeances.png"><img src="assets/captures/module_rh_echeances.png" alt="Module de suivi administratif : alertes d&#x27;échéance des contrats" loading="lazy"></a><figcaption>Module de suivi administratif : alertes d&#x27;échéance des contrats · données fictives</figcaption></figure><figure><a href="assets/captures/module_recrutement.png"><img src="assets/captures/module_recrutement.png" alt="Module de recrutement : statut et prochaine action par candidature" loading="lazy"></a><figcaption>Module de recrutement : statut et prochaine action par candidature · données fictives</figcaption></figure></div>
+</section>
+
+<section id="insights">
+  <h2>Insights RH</h2>
+  <p>Constats calculés automatiquement à partir des données fictives au 31/10/2026, présentés de façon agrégée (aucun jugement sur une personne). Les pistes sont des suggestions : la décision appartient au responsable RH.</p><div class="grille"><div class="carte"><span class="etiquette">Attention · Contrats</span><h3>Échéances de CDD concentrées sur les prochaines semaines</h3><p class="chiffre">3 / 7</p><p>3 des 7 CDD en cours se terminent dans les 30 jours (4 dans les 90 jours). Première échéance : 03/11/2026, dans 3 jours.</p><p><em>Piste : Préparer dès maintenant les dossiers (avis du responsable hiérarchique, besoins du service) pour que le responsable RH décide avant chaque échéance.</em></p></div><div class="carte"><span class="etiquette">Attention · Organisation</span><h3>Actions administratives en retard</h3><p class="chiffre">1</p><p>1 action(s) ont dépassé leur échéance ; la plus ancienne de 46 jours. Domaine(s) concerné(s) : Recrutement.</p><p><em>Piste : Traiter ces actions en priorité et ajouter un point hebdomadaire de suivi des échéances.</em></p></div><div class="carte"><span class="etiquette">À suivre · Effectifs</span><h3>Département le plus dépendant des CDD</h3><p class="chiffre">40 %</p><p>Commercial et service client : 2 CDD sur 5 personnes (40 %), contre 26 % pour l&#x27;ensemble de l&#x27;effectif. Calcul limité aux départements d&#x27;au moins 3 personnes.</p><p><em>Piste : Vérifier avec le responsable du département si ces postes correspondent à des besoins temporaires ou permanents.</em></p></div><div class="carte"><span class="etiquette">À suivre · Effectifs</span><h3>Rotation du personnel depuis janvier</h3><p class="chiffre">10,8 %</p><p>3 sortie(s) et 4 entrée(s) en 10 mois, pour un effectif moyen de 27,7 personnes. 2 des 3 sorties concernent le département Opérations techniques.</p><p><em>Piste : Proposer un court entretien de départ systématique pour comprendre les causes, sans en tirer de conclusion sur un cas isolé.</em></p></div><div class="carte"><span class="etiquette">Information · Absences</span><h3>Absences non planifiées</h3><p class="chiffre">1,5 %</p><p>91 jours d&#x27;absence non planifiés sur 6053 jours travaillables depuis le 1er janvier (absences pour raison de santé et absences non justifiées, congés exclus).</p><p><em>Piste : Suivre ce taux chaque mois ; une hausse durable justifie un échange collectif sur les conditions de travail, jamais un contrôle individuel des motifs.</em></p></div><div class="carte"><span class="etiquette">Information · Absences</span><h3>Mois le plus chargé en congés annuels</h3><p class="chiffre">mars 2026</p><p>86 jours de congé annuel en mars 2026, soit 19 % des 455 jours pris depuis janvier.</p><p><em>Piste : Établir un planning prévisionnel des congés par service pour garantir la continuité pendant les périodes chargées.</em></p></div><div class="carte"><span class="etiquette">Information · Recrutement</span><h3>Efficacité du processus de recrutement</h3><p class="chiffre">70 %</p><p>7 des 10 candidatures examinées en présélection ont été convoquées au test. Délai moyen entre la candidature et la décision du responsable RH : 38 jours. Sources à égalité parmi les convocations : Bouche-à-oreille, Site carrières, Université (2 chacune sur 7).</p><p><em>Piste : Comparer ce délai à l&#x27;objectif fixé par le responsable RH et conserver les canaux de diffusion qui apportent des profils adaptés.</em></p></div></div>
+</section>
+
+<section id="documents">
+  <h2>Exemples de procédures et de rapports</h2>
+  <div class="grille"><div class="carte"><span class="etiquette">Procédure</span><h3>Procédure : gestion des congés et des absences</h3><p>Demande, validation, enregistrement et confidentialité des absences pour raison de santé.</p><p><a href="portfolio/pages/procedure_conges_absences.html">Lire le document →</a></p></div><div class="carte"><span class="etiquette">Procédure</span><h3>Procédure : suivi des contrats et de leurs échéances</h3><p>Alertes à 90, 60 et 30 jours ; décision réservée au responsable RH.</p><p><a href="portfolio/pages/procedure_echeances_contrats.html">Lire le document →</a></p></div><div class="carte"><span class="etiquette">Procédure</span><h3>Procédure : organisation et archivage des dossiers individuels</h3><p>Plan de classement, règles de nommage, sécurité des dossiers individuels.</p><p><a href="portfolio/pages/procedure_archivage_dossiers.html">Lire le document →</a></p></div><div class="carte"><span class="etiquette">Rapport</span><h3>Rapport mensuel RH : octobre 2026</h3><p>Rapport mensuel RH généré à partir des données : effectifs, contrats, absences, recrutement, actions.</p><p><a href="portfolio/pages/rapport_mensuel_octobre_2026.html">Lire le document →</a></p></div><div class="carte"><span class="etiquette">Recrutement</span><h3>Planning des tests et entretiens</h3><p>Exemple de planning de tests et d&#x27;entretiens, avec les rappels donnés au panel.</p><p><a href="portfolio/pages/planning_entretiens.html">Lire le document →</a></p></div><div class="carte"><span class="etiquette">Recrutement</span><h3>Checklist d&#x27;intégration : Rebecca Nabintu</h3><p>Checklist d&#x27;intégration datée automatiquement à partir de la prise de fonction.</p><p><a href="portfolio/pages/checklist_integration.html">Lire le document →</a></p></div><div class="carte"><span class="etiquette">Modèle</span><h3>Courriel de convocation au test (exemple rempli)</h3><p>Courriel de convocation au test, rempli à partir du modèle et du planning.</p><p><a href="portfolio/pages/courriel_convocation.html">Lire le document →</a></p></div></div>
+</section>
+
+<section id="ia">
+  <h2>Utilisation responsable de l'IA et confidentialité</h2>
+  <div class="grille">
+    <div class="carte"><h3>Comment l'IA a été utilisée</h3><ul class="liste">
+      <li>Ce projet a été construit <strong>avec l'assistance de Claude Code</strong> (Anthropic) dans VS Code :
+      structure, code, tests et premières versions des textes.</li>
+      <li>Les propositions de l'IA ont été <strong>exécutées et vérifiées</strong> par des tests automatisés et un
+      contrôle de cohérence. Je reste responsable du contenu publié.</li>
+      <li>Les règles juridiques (Code du travail de la RDC) ne sont <strong>jamais affirmées</strong> par l'outil :
+      elles sont signalées « à vérifier » par une personne compétente.</li>
+    </ul></div>
+    <div class="carte"><h3>Aucune décision automatisée</h3><ul class="liste">
+      <li>Le module de recrutement <strong>ne note pas, ne classe pas et ne sélectionne pas</strong> les candidats.</li>
+      <li>Chaque étape est enregistrée par une personne ; la décision appartient au responsable RH.</li>
+      <li>Aucune caractéristique sensible (genre, âge, origine, santé, situation familiale) n'est collectée sur les candidats.</li>
+      <li>Les alertes de contrat sont indicatives : la décision contractuelle reste humaine.</li>
+    </ul></div>
+    <div class="carte"><h3>Confidentialité</h3><ul class="liste">
+      <li><strong>Données 100 % fictives</strong>. Aucune donnée réelle n'a été transmise à l'IA.</li>
+      <li>Minimisation : ni date de naissance, ni salaire, ni coordonnées dans les écrans de suivi.</li>
+      <li>Les absences pour raison de santé apparaissent sous une catégorie confidentielle, sans détail médical.</li>
+      <li>Les références d'un candidat ne sont contactées qu'avec son autorisation écrite.</li>
+    </ul></div>
+  </div>
+</section>
+
+<section id="tests">
+  <h2>Ce qui a été testé, et les limites</h2>
+  <div class="grille">
+    <div class="carte"><h3>Tests automatisés</h3>
+      <p class="chiffre"><span class="ok">76 tests réussis</span></p>
+      <p>Exécutés lors de la génération de cette page, le 14/10/2026. Ils couvrent les calculs RH, les transitions
+      du recrutement, les modèles de documents, les exports et le tableau de bord. Chaque indicateur est recalculé
+      indépendamment, directement depuis les fichiers sources ou par des requêtes SQL.</p></div>
+    <div class="carte"><h3>Contrôle de cohérence des données</h3>
+      <p class="chiffre"><span class="ok">26 règles respectées</span></p>
+      <p>Contrats continus, effectifs mensuels équilibrés, absences dans la période d'emploi, processus de
+      recrutement respecté, aucune caractéristique sensible collectée.</p></div>
+    <div class="carte"><h3>Vérifié dans le navigateur (14/10/2026)</h3><ul class="liste">
+      <li>Affichage des 3 outils et du portfolio dans Microsoft Edge ; tableau de bord en thèmes clair et sombre.</li>
+      <li>Affichage du tableau de bord sur une largeur de téléphone (390 px), sans défilement horizontal.</li>
+      <li>Boutons d'export CSV (contenu des fichiers, accents) et infobulles des graphiques.</li>
+    </ul></div>
+  </div>
+  <h3 style="margin-top:24px">Limites connues</h3>
+  <ul class="liste">
+    <li>Outils de <strong>consultation</strong> : pas de saisie dans le navigateur ; les données se modifient dans les scripts.</li>
+    <li>Pas de mot de passe ni de gestion des droits : en situation réelle, il faudrait un espace à accès restreint ou un SIRH.</li>
+    <li>Soldes de congés non calculés (règle d'acquisition à définir) ; jours fériés non déduits.</li>
+    <li>Aucun courriel n'est envoyé ; aucune notification automatique.</li>
+    <li>Non testés : la fenêtre d'impression PDF, le téléchargement réel dans le dossier de l'utilisateur, les navigateurs autres qu'Edge et les lecteurs d'écran.</li>
+    <li>Excel, R et Power BI : pas de réalisation dédiée dans ce projet (voir le tableau des compétences).</li>
+  </ul>
+</section>
+
+<section id="contact">
+  <h2>Me contacter</h2>
+  <div class="grille"><div class="carte"><ul class="coordonnees"><li><strong>Nom :</strong> <span class="a-completer">À compléter</span></li><li><strong>Ville :</strong> Goma, République démocratique du Congo</li><li><strong>E-mail :</strong> <span class="a-completer">À compléter</span></li><li><strong>Téléphone :</strong> <span class="a-completer">À compléter</span></li><li><strong>LinkedIn :</strong> <span class="a-completer">À compléter</span></li><li><strong>Portfolio professionnel :</strong> <span class="a-completer">À compléter</span></li></ul></div>
+  <div class="carte"><h3>Le code source</h3><p>Tout le projet (données fictives, scripts, tests, documentation) est
+  consultable dans ce dépôt. Pour le relancer : voir <a href="README.md">README.md</a>.</p></div></div>
+</section>
+</main>
+<footer class="conteneur">NURU HR DIGITAL PORTFOLIO · réalisation personnelle de démonstration · données fictives ·
+projet indépendant de Nuru, sans lien contractuel, partenariat ni validation de Nuru · page générée le 14/10/2026.</footer>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+﻿matricule;prenom;nom;genre;departement;poste;categorie;bureau;date_embauche;statut;date_sortie;motif_sortie;age;anciennete_mois;type_contrat_actuel;date_fin_contrat_actuel;salaire_brut_mensuel_usd
+EMP-001;Bienvenu;Mukeba;M;Direction;Directeur(trice) pays;Cadre;Goma;2017-03-01;Actif;;;33;115;CDI;;4200
+EMP-002;Clarisse;Bisimwa;F;Direction;Assistant(e) de direction;Agent de maîtrise;Goma;2021-06-01;Actif;;;41;64;CDI;;990
+EMP-003;Neema;Lukusa;F;Ressources humaines;Responsable RH;Cadre;Goma;2019-02-01;Actif;;;31;92;CDI;;2000
+EMP-004;Josué;Mirindi;M;Ressources humaines;Chargé(e) RH;Agent de maîtrise;Goma;2025-08-01;Actif;;;41;14;CDD;2027-07-31;1160
+EMP-005;Grâce;Balume;F;Finance;Responsable financier(ère);Cadre;Goma;2018-09-03;Actif;;;47;97;CDI;;2100
+EMP-006;Patrick;Amisi;M;Finance;Comptable;Agent de maîtrise;Goma;2022-01-10;Actif;;;48;57;CDI;;1100
+EMP-007;Rachel;Safari;F;Finance;Comptable;Agent de maîtrise;Bukavu;2025-12-01;Actif;;;46;10;CDD;2026-11-30;1000
+EMP-008;Olivier;Kalume;M;Logistique;Responsable logistique;Cadre;Goma;2016-05-02;Actif;;;38;125;CDI;;1800
+EMP-009;Divine;Shabani;F;Logistique;Logisticien(ne);Agent de maîtrise;Goma;2024-11-04;Actif;;;25;23;CDD;2026-11-03;1000
+EMP-010;Dieudonné;Byamungu;M;Logistique;Chauffeur;Exécution;Goma;2016-08-01;Actif;;;34;122;CDI;;450
+EMP-011;Espoir;Cirhuza;M;Logistique;Chauffeur;Exécution;Bukavu;2020-04-01;Actif;;;48;78;CDI;;470
+EMP-012;Héritier;Kubuya;M;Logistique;Chauffeur;Exécution;Beni;2023-03-01;Actif;;;34;43;CDI;;490
+EMP-013;Arsène;Rusimbi;M;Logistique;Magasinier(ère);Exécution;Goma;2021-10-01;Actif;;;34;60;CDI;;520
+EMP-014;Ruth;Mushagalusa;F;Opérations techniques;Chef(fe) de projet technique;Cadre;Goma;2019-07-01;Actif;;;39;87;CDI;;2300
+EMP-015;Elie;Kalinda;M;Opérations techniques;Ingénieur(e) électricien(ne);Cadre;Goma;2020-01-06;Actif;;;47;81;CDI;;1680
+EMP-016;Aline;Zihindula;F;Opérations techniques;Ingénieur(e) électricien(ne);Cadre;Bukavu;2026-01-05;Actif;;;31;9;CDD;2027-01-04;1600
+EMP-017;Baraka;Mwamba;M;Opérations techniques;Technicien(ne) électricien(ne);Exécution;Goma;2022-05-02;Actif;;;42;53;CDI;;710
+EMP-018;Tumaini;Bahizi;M;Opérations techniques;Technicien(ne) électricien(ne);Exécution;Goma;2024-02-01;Actif;;;37;32;CDI;;710
+EMP-019;Faraja;Maombi;F;Opérations techniques;Technicien(ne) électricien(ne);Exécution;Beni;2023-09-01;Actif;;;45;37;CDI;;710
+EMP-020;Riziki;Barhakomerwa;M;Opérations techniques;Technicien(ne) électricien(ne);Exécution;Bukavu;2026-04-01;Sorti;2026-09-30;Fin de CDD;30;5;CDD;2026-09-30;650
+EMP-021;Imani;Lwaboshi;F;Opérations techniques;Technicien(ne) électricien(ne);Exécution;Goma;2025-05-05;Actif;;;44;17;CDD;2026-11-04;680
+EMP-022;Jospin;Ilunga;M;Opérations techniques;Technicien(ne) électricien(ne);Exécution;Beni;2021-02-01;Sorti;2026-06-30;Démission;39;64;CDI;2026-06-30;680
+EMP-023;Furaha;Nsimire;F;Commercial et service client;Responsable commercial(e);Cadre;Goma;2018-02-05;Actif;;;41;104;CDI;;1900
+EMP-024;Gloire;Kasereka;M;Commercial et service client;Agent(e) commercial(e);Exécution;Goma;2023-06-01;Actif;;;39;40;CDI;;580
+EMP-025;Zawadi;Muhindo;F;Commercial et service client;Agent(e) commercial(e);Exécution;Bukavu;2024-07-01;Actif;;;39;27;CDI;;610
+EMP-026;Pascal;Paluku;M;Commercial et service client;Agent(e) commercial(e);Exécution;Beni;2026-03-02;Actif;;;33;7;CDD;2027-03-01;550
+EMP-027;Merveille;Kavira;F;Commercial et service client;Chargé(e) service client;Exécution;Goma;2022-09-01;Sorti;2026-03-15;Démission;37;42;CDI;2026-03-15;630
+EMP-028;Christelle;Masika;F;Commercial et service client;Chargé(e) service client;Exécution;Goma;2026-04-15;Actif;;;37;6;CDD;2027-04-14;600
+EMP-029;Nadine;Mapendo;F;Informatique;Administrateur(trice) systèmes;Cadre;Goma;2020-10-01;Actif;;;27;72;CDI;;1580
+EMP-030;Bahati;Kambale;M;Services généraux;Agent(e) de sécurité;Exécution;Goma;2019-11-04;Actif;;;52;83;CDI;;400

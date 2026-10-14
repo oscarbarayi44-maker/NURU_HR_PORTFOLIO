@@ -1,0 +1,7 @@
+﻿stagiaire_id;nom_complet;genre;filiere;niveau;departement;encadreur;date_debut;date_fin;duree_mois;statut;note_evaluation_sur_20
+STG-001;Sifa Bagula;F;Gestion des ressources humaines;Licence 3;Ressources humaines;Neema Lukusa (EMP-003);2026-02-02;2026-04-30;2;Terminé;16
+STG-002;Josaphat Kakule;M;Génie électrique;Licence 3;Opérations techniques;Elie Kalinda (EMP-015);2026-03-02;2026-08-31;5;Terminé;15
+STG-003;Ornella Bulambo;F;Comptabilité;Licence 2;Finance;Grâce Balume (EMP-005);2026-06-01;2026-08-28;2;Terminé;14
+STG-004;Moïse Kambale;M;Génie électrique;Master 1;Opérations techniques;Ruth Mushagalusa (EMP-014);2026-09-01;2027-02-26;5;En cours;
+STG-005;Joëlle Namegabe;F;Sciences commerciales;Licence 3;Commercial et service client;Furaha Nsimire (EMP-023);2026-10-01;2026-12-31;3;En cours;
+STG-006;Daniel Mastaki;M;Informatique de gestion;Licence 3;Informatique;Nadine Mapendo (EMP-029);2026-11-02;2027-01-29;2;À venir;

@@ -1,0 +1,17 @@
+# Fichiers générés automatiquement
+__pycache__/
+*.pyc
+sql/*.db
+hr_admin/module_suivi_rh_test_*.html
+recruitment/module_recrutement_test_*.html
+dashboard/tableau_de_bord_rh_test_*.html
+
+# Fichiers temporaires d'Office
+~$*
+
+# Environnements Python
+.venv/
+venv/
+
+# Aperçus de contrôle de la présentation (régénérés)
+documents/rapports/apercu_diapositives/

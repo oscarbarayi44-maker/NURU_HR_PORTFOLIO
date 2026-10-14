@@ -1,0 +1,32 @@
+﻿mois;type_absence;jours_ouvrables
+2026-01;Congé annuel;10
+2026-01;Maladie;16
+2026-02;Congé annuel;22
+2026-02;Maladie;7
+2026-03;Congé annuel;86
+2026-03;Congé de maternité;22
+2026-03;Maladie;4
+2026-04;Congé annuel;40
+2026-04;Congé de circonstance;2
+2026-04;Congé de maternité;22
+2026-04;Maladie;9
+2026-05;Absence non justifiée;1
+2026-05;Congé annuel;13
+2026-05;Congé de circonstance;3
+2026-05;Congé de maternité;21
+2026-05;Maladie;10
+2026-06;Congé annuel;36
+2026-06;Congé de circonstance;3
+2026-06;Congé de maternité;5
+2026-06;Maladie;10
+2026-07;Congé annuel;54
+2026-07;Maladie;7
+2026-08;Absence non justifiée;1
+2026-08;Congé annuel;31
+2026-08;Maladie;9
+2026-09;Congé annuel;78
+2026-09;Congé de circonstance;5
+2026-09;Maladie;8
+2026-10;Congé annuel;85
+2026-10;Congé de circonstance;3
+2026-10;Maladie;9

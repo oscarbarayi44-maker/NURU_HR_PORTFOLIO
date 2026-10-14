@@ -1,0 +1,31 @@
+﻿matricule;prenom;nom;genre;date_naissance;departement;poste;categorie;bureau;date_embauche;statut;date_sortie;motif_sortie;email_professionnel
+EMP-001;Bienvenu;Mukeba;M;1993-06-17;Direction;Directeur(trice) pays;Cadre;Goma;2017-03-01;Actif;;;emp-001@exemple-rh.test
+EMP-002;Clarisse;Bisimwa;F;1984-11-28;Direction;Assistant(e) de direction;Agent de maîtrise;Goma;2021-06-01;Actif;;;emp-002@exemple-rh.test
+EMP-003;Neema;Lukusa;F;1995-04-20;Ressources humaines;Responsable RH;Cadre;Goma;2019-02-01;Actif;;;emp-003@exemple-rh.test
+EMP-004;Josué;Mirindi;M;1985-09-14;Ressources humaines;Chargé(e) RH;Agent de maîtrise;Goma;2025-08-01;Actif;;;emp-004@exemple-rh.test
+EMP-005;Grâce;Balume;F;1979-09-27;Finance;Responsable financier(ère);Cadre;Goma;2018-09-03;Actif;;;emp-005@exemple-rh.test
+EMP-006;Patrick;Amisi;M;1978-08-25;Finance;Comptable;Agent de maîtrise;Goma;2022-01-10;Actif;;;emp-006@exemple-rh.test
+EMP-007;Rachel;Safari;F;1980-10-15;Finance;Comptable;Agent de maîtrise;Bukavu;2025-12-01;Actif;;;emp-007@exemple-rh.test
+EMP-008;Olivier;Kalume;M;1988-01-20;Logistique;Responsable logistique;Cadre;Goma;2016-05-02;Actif;;;emp-008@exemple-rh.test
+EMP-009;Divine;Shabani;F;2001-02-10;Logistique;Logisticien(ne);Agent de maîtrise;Goma;2024-11-04;Actif;;;emp-009@exemple-rh.test
+EMP-010;Dieudonné;Byamungu;M;1992-08-01;Logistique;Chauffeur;Exécution;Goma;2016-08-01;Actif;;;emp-010@exemple-rh.test
+EMP-011;Espoir;Cirhuza;M;1978-08-22;Logistique;Chauffeur;Exécution;Bukavu;2020-04-01;Actif;;;emp-011@exemple-rh.test
+EMP-012;Héritier;Kubuya;M;1992-04-13;Logistique;Chauffeur;Exécution;Beni;2023-03-01;Actif;;;emp-012@exemple-rh.test
+EMP-013;Arsène;Rusimbi;M;1992-06-12;Logistique;Magasinier(ère);Exécution;Goma;2021-10-01;Actif;;;emp-013@exemple-rh.test
+EMP-014;Ruth;Mushagalusa;F;1986-12-17;Opérations techniques;Chef(fe) de projet technique;Cadre;Goma;2019-07-01;Actif;;;emp-014@exemple-rh.test
+EMP-015;Elie;Kalinda;M;1979-02-24;Opérations techniques;Ingénieur(e) électricien(ne);Cadre;Goma;2020-01-06;Actif;;;emp-015@exemple-rh.test
+EMP-016;Aline;Zihindula;F;1995-02-18;Opérations techniques;Ingénieur(e) électricien(ne);Cadre;Bukavu;2026-01-05;Actif;;;emp-016@exemple-rh.test
+EMP-017;Baraka;Mwamba;M;1984-05-10;Opérations techniques;Technicien(ne) électricien(ne);Exécution;Goma;2022-05-02;Actif;;;emp-017@exemple-rh.test
+EMP-018;Tumaini;Bahizi;M;1989-03-21;Opérations techniques;Technicien(ne) électricien(ne);Exécution;Goma;2024-02-01;Actif;;;emp-018@exemple-rh.test
+EMP-019;Faraja;Maombi;F;1980-12-19;Opérations techniques;Technicien(ne) électricien(ne);Exécution;Beni;2023-09-01;Actif;;;emp-019@exemple-rh.test
+EMP-020;Riziki;Barhakomerwa;M;1996-01-28;Opérations techniques;Technicien(ne) électricien(ne);Exécution;Bukavu;2026-04-01;Sorti;2026-09-30;Fin de CDD;emp-020@exemple-rh.test
+EMP-021;Imani;Lwaboshi;F;1982-06-12;Opérations techniques;Technicien(ne) électricien(ne);Exécution;Goma;2025-05-05;Actif;;;emp-021@exemple-rh.test
+EMP-022;Jospin;Ilunga;M;1986-07-03;Opérations techniques;Technicien(ne) électricien(ne);Exécution;Beni;2021-02-01;Sorti;2026-06-30;Démission;emp-022@exemple-rh.test
+EMP-023;Furaha;Nsimire;F;1985-10-18;Commercial et service client;Responsable commercial(e);Cadre;Goma;2018-02-05;Actif;;;emp-023@exemple-rh.test
+EMP-024;Gloire;Kasereka;M;1987-02-14;Commercial et service client;Agent(e) commercial(e);Exécution;Goma;2023-06-01;Actif;;;emp-024@exemple-rh.test
+EMP-025;Zawadi;Muhindo;F;1987-10-16;Commercial et service client;Agent(e) commercial(e);Exécution;Bukavu;2024-07-01;Actif;;;emp-025@exemple-rh.test
+EMP-026;Pascal;Paluku;M;1993-09-09;Commercial et service client;Agent(e) commercial(e);Exécution;Beni;2026-03-02;Actif;;;emp-026@exemple-rh.test
+EMP-027;Merveille;Kavira;F;1988-10-16;Commercial et service client;Chargé(e) service client;Exécution;Goma;2022-09-01;Sorti;2026-03-15;Démission;emp-027@exemple-rh.test
+EMP-028;Christelle;Masika;F;1989-09-26;Commercial et service client;Chargé(e) service client;Exécution;Goma;2026-04-15;Actif;;;emp-028@exemple-rh.test
+EMP-029;Nadine;Mapendo;F;1999-10-08;Informatique;Administrateur(trice) systèmes;Cadre;Goma;2020-10-01;Actif;;;emp-029@exemple-rh.test
+EMP-030;Bahati;Kambale;M;1974-03-27;Services généraux;Agent(e) de sécurité;Exécution;Goma;2019-11-04;Actif;;;emp-030@exemple-rh.test

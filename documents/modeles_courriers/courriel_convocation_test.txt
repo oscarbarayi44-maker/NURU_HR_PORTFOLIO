@@ -1,0 +1,28 @@
+Objet : Convocation au test de recrutement : {intitule} ({offre_id})
+
+Bonjour {prenom} {nom},
+
+Nous vous remercions pour votre candidature au poste de {intitule}, basé à {bureau}.
+Nous avons le plaisir de vous inviter à l'étape suivante du processus de recrutement :
+
+  - Date : {date_longue}
+  - Horaire : de {heure_debut} à {heure_fin}
+  - Lieu : {lieu}
+  - Déroulement : {epreuve}
+
+Merci de vous munir d'une pièce d'identité et de confirmer votre présence en répondant
+à ce courriel au plus tard le {date_confirmation}.
+
+Si vous avez besoin d'un aménagement particulier pour passer le test, ou si vous
+souhaitez proposer un autre créneau, n'hésitez pas à nous l'indiquer.
+
+Vos données sont utilisées uniquement pour ce recrutement. Vous pouvez demander à les
+consulter ou à les faire supprimer en répondant à ce courriel.
+
+Cordialement,
+
+{signataire}
+Ressources humaines
+
+--
+MODÈLE FICTIF : portfolio personnel, ce n'est pas un document officiel de Nuru.

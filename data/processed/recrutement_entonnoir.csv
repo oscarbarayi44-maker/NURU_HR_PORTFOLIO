@@ -1,0 +1,17 @@
+﻿offre_id;intitule;etape;ordre_etape;nb_candidats;taux_par_rapport_aux_candidatures_pct
+OFF-2026-01;Assistant(e) RH;Candidature reçue;1;5;100
+OFF-2026-01;Assistant(e) RH;Présélection;2;5;100
+OFF-2026-01;Assistant(e) RH;Convocation au test;3;3;60
+OFF-2026-01;Assistant(e) RH;Test réalisé;4;3;60
+OFF-2026-01;Assistant(e) RH;Vérification des références;5;2;40
+OFF-2026-01;Assistant(e) RH;Décision du responsable RH;6;2;40
+OFF-2026-01;Assistant(e) RH;Offre et contractualisation;7;1;20
+OFF-2026-01;Assistant(e) RH;Intégration;8;0;0
+OFF-2026-02;Technicien(ne) électricien(ne);Candidature reçue;1;5;100
+OFF-2026-02;Technicien(ne) électricien(ne);Présélection;2;5;100
+OFF-2026-02;Technicien(ne) électricien(ne);Convocation au test;3;4;80
+OFF-2026-02;Technicien(ne) électricien(ne);Test réalisé;4;0;0
+OFF-2026-02;Technicien(ne) électricien(ne);Vérification des références;5;0;0
+OFF-2026-02;Technicien(ne) électricien(ne);Décision du responsable RH;6;0;0
+OFF-2026-02;Technicien(ne) électricien(ne);Offre et contractualisation;7;0;0
+OFF-2026-02;Technicien(ne) électricien(ne);Intégration;8;0;0

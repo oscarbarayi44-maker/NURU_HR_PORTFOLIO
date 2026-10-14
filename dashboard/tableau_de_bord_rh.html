@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tableau de bord RH</title>
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7; --surface: #fcfcfb; --encre: #0b0b0b; --encre-2: #52514e; --discret: #898781;
+  --grille: #e1e0d9; --bord: rgba(11,11,11,0.10); --accent: #2a78d6; --bandeau: #fff4d6; --bandeau-trait: #e0b44a;
+  --serie-1: #2a78d6; --serie-2: #eb6834;
+  --critique: #d03b3b; --serieux: #ec835a; --vigilance: #fab219; --neutre: #898781;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19; --encre: #f0efec; --encre-2: #c3c2b7; --grille: #2c2c2a;
+    --bord: rgba(255,255,255,0.10); --accent: #3987e5; --bandeau: #3a3220; --bandeau-trait: #b48a2c;
+    --serie-1: #3987e5; --serie-2: #d95926;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--encre);
+  font: 15px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+.fictif { background: var(--bandeau); border-bottom: 2px solid var(--bandeau-trait); padding: 8px 16px;
+  text-align: center; font-weight: 600; }
+.conteneur { max-width: 1240px; margin: 0 auto; padding: 0 16px 32px; }
+header { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px; margin: 20px 0 16px; }
+h1 { font-size: 1.6rem; margin: 0; }
+.sous-titre { color: var(--encre-2); margin: 2px 0 0; }
+.exports { display: flex; flex-wrap: wrap; gap: 8px; }
+button { font: inherit; font-size: .88rem; padding: 7px 12px; border-radius: 6px; cursor: pointer;
+  border: 1px solid var(--bord); background: var(--surface); color: var(--encre); }
+button.principal { background: var(--accent); border-color: var(--accent); color: #fff; }
+button:focus-visible, .barre:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.tuiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-bottom: 16px; }
+.tuile { background: var(--surface); border: 1px solid var(--bord); border-radius: 10px; padding: 14px 16px; }
+.tuile.hero { grid-column: span 2; }
+.t-lib { color: var(--encre-2); font-size: .85rem; }
+.t-val { font-size: 2rem; font-weight: 600; line-height: 1.15; margin: 4px 0; }
+.hero .t-val { font-size: 3.2rem; }
+.t-det { color: var(--encre-2); font-size: .8rem; }
+.grille { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 480px), 1fr)); gap: 16px; }
+.carte { background: var(--surface); border: 1px solid var(--bord); border-radius: 10px; padding: 16px; min-width: 0; }
+.carte.large { grid-column: 1 / -1; }
+h2 { font-size: 1.02rem; margin: 0 0 10px; }
+.legende { list-style: none; display: flex; flex-wrap: wrap; gap: 6px 16px; padding: 0; margin: 0 0 12px;
+  font-size: .85rem; color: var(--encre-2); }
+.legende li { display: flex; align-items: center; gap: 6px; }
+.pastille { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+.barres { display: grid; gap: 6px; }
+.barre { display: grid; grid-template-columns: minmax(96px, 40%) 1fr 2.5em; align-items: center; gap: 10px;
+  padding: 3px 4px; border-radius: 6px; font-size: .88rem; }
+.barre:hover { background: var(--grille); }
+.b-lib { color: var(--encre-2); line-height: 1.25; }
+.b-piste { display: flex; height: 14px; border-left: 1px solid var(--grille); }
+.seg { height: 100%; min-width: 3px; }
+.seg + .seg { border-left: 2px solid var(--surface); }
+.seg:last-child { border-radius: 0 4px 4px 0; }
+.b-val { font-variant-numeric: tabular-nums; text-align: right; font-weight: 600; }
+.note { color: var(--encre-2); font-size: .82rem; margin: 10px 0 0; }
+.note.decision { color: var(--encre); border-left: 4px solid var(--accent); padding: 6px 10px; background: var(--page); border-radius: 4px; }
+details.donnees { margin-top: 10px; font-size: .85rem; }
+details.donnees summary { cursor: pointer; color: var(--accent); }
+.defile { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: .86rem; }
+th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--grille); white-space: nowrap; vertical-align: top; }
+th { color: var(--encre-2); font-weight: 600; }
+td.texte { white-space: normal; min-width: 260px; }
+.num { text-align: right; font-variant-numeric: tabular-nums; }
+.badge { display: inline-block; padding: 1px 8px 1px 6px; border-radius: 4px; border-left: 4px solid var(--neutre);
+  background: color-mix(in srgb, var(--neutre) 12%, transparent); white-space: nowrap; }
+.badge.critique { border-color: var(--critique); background: color-mix(in srgb, var(--critique) 14%, transparent); }
+.badge.serieux { border-color: var(--serieux); background: color-mix(in srgb, var(--serieux) 16%, transparent); }
+.badge.vigilance { border-color: var(--vigilance); background: color-mix(in srgb, var(--vigilance) 18%, transparent); }
+.insights { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); }
+.insight { border: 1px solid var(--bord); border-radius: 8px; padding: 12px 14px; background: var(--page); }
+.insight h3 { font-size: .95rem; margin: 8px 0 2px; }
+.insight p { font-size: .86rem; margin: 6px 0 0; }
+.i-tete { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: .8rem; }
+.i-theme { color: var(--encre-2); }
+.i-val { font-size: 1.6rem; font-weight: 600; line-height: 1.2; }
+.i-piste { color: var(--encre-2); }
+#infobulle { position: fixed; z-index: 10; pointer-events: none; max-width: 280px; padding: 6px 10px; border-radius: 6px;
+  background: var(--encre); color: var(--page); font-size: .82rem; box-shadow: 0 2px 8px rgba(0,0,0,.25); }
+footer { color: var(--encre-2); font-size: .8rem; margin-top: 24px; }
+@media (max-width: 560px) {
+  .tuile.hero { grid-column: auto; }
+  .hero .t-val { font-size: 2.6rem; }
+  .barre { grid-template-columns: 1fr 2.5em; }
+  .b-lib { grid-column: 1 / -1; }
+}
+@media print {
+  .exports, #infobulle { display: none !important; }
+  body { background: #fff; }
+  .carte, .tuile { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+<div class="fictif" role="note">Données fictives. Portfolio personnel, ce n&#x27;est pas un outil officiel de Nuru.</div>
+<div class="conteneur">
+<header>
+  <div>
+    <h1>Tableau de bord RH</h1>
+    <p class="sous-titre">NURU HR DIGITAL PORTFOLIO · situation au <strong>31/10/2026</strong> · indicateurs calculés automatiquement à partir des données sources</p>
+  </div>
+  <div class="exports">
+    <button class="principal" type="button" data-export="csv-indicateurs" data-fichier="indicateurs_rh_2026-10-31.csv">Exporter les indicateurs (CSV)</button>
+    <button type="button" data-export="csv-actions" data-fichier="actions_rh_2026-10-31.csv">Exporter les actions (CSV)</button>
+    <button type="button" id="imprimer">Imprimer / PDF</button>
+  </div>
+</header>
+<main>
+  <section class="tuiles" aria-label="Indicateurs clés"><div class="tuile hero"><div class="t-lib">Effectif actif</div><div class="t-val">27</div><div class="t-det">sur 30 collaborateurs enregistrés · 26 % en CDD</div></div><div class="tuile"><div class="t-lib">CDD à échéance sous 30 jours</div><div class="t-val">3</div><div class="t-det">0 contrat(s) échu(s) non régularisé(s)</div></div><div class="tuile"><div class="t-lib">Stagiaires suivis</div><div class="t-val">6</div><div class="t-det">2 en cours · 1 à venir · 3 terminés</div></div><div class="tuile"><div class="t-lib">Absences enregistrées</div><div class="t-val">98</div><div class="t-det">95 réalisées (632 jours ouvrables) · 1 demande(s) en attente</div></div><div class="tuile"><div class="t-lib">Candidatures</div><div class="t-val">10</div><div class="t-det">2 offres en cours de suivi</div></div><div class="tuile"><div class="t-lib">Actions à effectuer</div><div class="t-val">11</div><div class="t-det">dont 1 en retard</div></div></section>
+  <div class="grille">
+    <section class="carte"><h2>Effectifs par département</h2><ul class="legende"><li><span class="pastille" style="background:var(--serie-1)"></span>CDI</li><li><span class="pastille" style="background:var(--serie-2)"></span>CDD</li></ul><div class="barres"><div class="barre" tabindex="0" data-info="Opérations techniques · CDI : 5 · CDD : 2 · Total : 7" aria-label="Opérations techniques · CDI : 5 · CDD : 2 · Total : 7"><span class="b-lib">Opérations techniques</span><span class="b-piste"><span class="seg" style="width:71.43%;background:var(--serie-1)"></span><span class="seg" style="width:28.57%;background:var(--serie-2)"></span></span><span class="b-val">7</span></div><div class="barre" tabindex="0" data-info="Logistique · CDI : 5 · CDD : 1 · Total : 6" aria-label="Logistique · CDI : 5 · CDD : 1 · Total : 6"><span class="b-lib">Logistique</span><span class="b-piste"><span class="seg" style="width:71.43%;background:var(--serie-1)"></span><span class="seg" style="width:14.29%;background:var(--serie-2)"></span></span><span class="b-val">6</span></div><div class="barre" tabindex="0" data-info="Commercial et service client · CDI : 3 · CDD : 2 · Total : 5" aria-label="Commercial et service client · CDI : 3 · CDD : 2 · Total : 5"><span class="b-lib">Commercial et service client</span><span class="b-piste"><span class="seg" style="width:42.86%;background:var(--serie-1)"></span><span class="seg" style="width:28.57%;background:var(--serie-2)"></span></span><span class="b-val">5</span></div><div class="barre" tabindex="0" data-info="Finance · CDI : 2 · CDD : 1 · Total : 3" aria-label="Finance · CDI : 2 · CDD : 1 · Total : 3"><span class="b-lib">Finance</span><span class="b-piste"><span class="seg" style="width:28.57%;background:var(--serie-1)"></span><span class="seg" style="width:14.29%;background:var(--serie-2)"></span></span><span class="b-val">3</span></div><div class="barre" tabindex="0" data-info="Direction · CDI : 2 · CDD : 0 · Total : 2" aria-label="Direction · CDI : 2 · CDD : 0 · Total : 2"><span class="b-lib">Direction</span><span class="b-piste"><span class="seg" style="width:28.57%;background:var(--serie-1)"></span></span><span class="b-val">2</span></div><div class="barre" tabindex="0" data-info="Ressources humaines · CDI : 1 · CDD : 1 · Total : 2" aria-label="Ressources humaines · CDI : 1 · CDD : 1 · Total : 2"><span class="b-lib">Ressources humaines</span><span class="b-piste"><span class="seg" style="width:14.29%;background:var(--serie-1)"></span><span class="seg" style="width:14.29%;background:var(--serie-2)"></span></span><span class="b-val">2</span></div><div class="barre" tabindex="0" data-info="Informatique · CDI : 1 · CDD : 0 · Total : 1" aria-label="Informatique · CDI : 1 · CDD : 0 · Total : 1"><span class="b-lib">Informatique</span><span class="b-piste"><span class="seg" style="width:14.29%;background:var(--serie-1)"></span></span><span class="b-val">1</span></div><div class="barre" tabindex="0" data-info="Services généraux · CDI : 1 · CDD : 0 · Total : 1" aria-label="Services généraux · CDI : 1 · CDD : 0 · Total : 1"><span class="b-lib">Services généraux</span><span class="b-piste"><span class="seg" style="width:14.29%;background:var(--serie-1)"></span></span><span class="b-val">1</span></div></div><details class="donnees"><summary>Voir les données</summary><div class="defile"><table><thead><tr><th scope="col">Département</th><th scope="col">CDI</th><th scope="col">CDD</th><th scope="col">Total</th></tr></thead><tbody><tr><td>Opérations techniques</td><td>5</td><td>2</td><td>7</td></tr><tr><td>Logistique</td><td>5</td><td>1</td><td>6</td></tr><tr><td>Commercial et service client</td><td>3</td><td>2</td><td>5</td></tr><tr><td>Finance</td><td>2</td><td>1</td><td>3</td></tr><tr><td>Direction</td><td>2</td><td>0</td><td>2</td></tr><tr><td>Ressources humaines</td><td>1</td><td>1</td><td>2</td></tr><tr><td>Informatique</td><td>1</td><td>0</td><td>1</td></tr><tr><td>Services généraux</td><td>1</td><td>0</td><td>1</td></tr></tbody></table></div></details></section>
+    <section class="carte"><h2>Candidatures par étape du recrutement</h2><ul class="legende"><li><span class="pastille" style="background:var(--serie-1)"></span>Assistant(e) RH (OFF-2026-01)</li><li><span class="pastille" style="background:var(--serie-2)"></span>Technicien(ne) électricien(ne) (OFF-2026-02)</li></ul><div class="barres"><div class="barre" tabindex="0" data-info="1. Candidature reçue · Assistant(e) RH (OFF-2026-01) : 5 · Technicien(ne) électricien(ne) (OFF-2026-02) : 5 · Total : 10" aria-label="1. Candidature reçue · Assistant(e) RH (OFF-2026-01) : 5 · Technicien(ne) électricien(ne) (OFF-2026-02) : 5 · Total : 10"><span class="b-lib">1. Candidature reçue</span><span class="b-piste"><span class="seg" style="width:50.00%;background:var(--serie-1)"></span><span class="seg" style="width:50.00%;background:var(--serie-2)"></span></span><span class="b-val">10</span></div><div class="barre" tabindex="0" data-info="2. Présélection · Assistant(e) RH (OFF-2026-01) : 5 · Technicien(ne) électricien(ne) (OFF-2026-02) : 5 · Total : 10" aria-label="2. Présélection · Assistant(e) RH (OFF-2026-01) : 5 · Technicien(ne) électricien(ne) (OFF-2026-02) : 5 · Total : 10"><span class="b-lib">2. Présélection</span><span class="b-piste"><span class="seg" style="width:50.00%;background:var(--serie-1)"></span><span class="seg" style="width:50.00%;background:var(--serie-2)"></span></span><span class="b-val">10</span></div><div class="barre" tabindex="0" data-info="3. Convocation au test · Assistant(e) RH (OFF-2026-01) : 3 · Technicien(ne) électricien(ne) (OFF-2026-02) : 4 · Total : 7" aria-label="3. Convocation au test · Assistant(e) RH (OFF-2026-01) : 3 · Technicien(ne) électricien(ne) (OFF-2026-02) : 4 · Total : 7"><span class="b-lib">3. Convocation au test</span><span class="b-piste"><span class="seg" style="width:30.00%;background:var(--serie-1)"></span><span class="seg" style="width:40.00%;background:var(--serie-2)"></span></span><span class="b-val">7</span></div><div class="barre" tabindex="0" data-info="4. Test réalisé · Assistant(e) RH (OFF-2026-01) : 3 · Technicien(ne) électricien(ne) (OFF-2026-02) : 0 · Total : 3" aria-label="4. Test réalisé · Assistant(e) RH (OFF-2026-01) : 3 · Technicien(ne) électricien(ne) (OFF-2026-02) : 0 · Total : 3"><span class="b-lib">4. Test réalisé</span><span class="b-piste"><span class="seg" style="width:30.00%;background:var(--serie-1)"></span></span><span class="b-val">3</span></div><div class="barre" tabindex="0" data-info="5. Vérification des références · Assistant(e) RH (OFF-2026-01) : 2 · Technicien(ne) électricien(ne) (OFF-2026-02) : 0 · Total : 2" aria-label="5. Vérification des références · Assistant(e) RH (OFF-2026-01) : 2 · Technicien(ne) électricien(ne) (OFF-2026-02) : 0 · Total : 2"><span class="b-lib">5. Vérification des références</span><span class="b-piste"><span class="seg" style="width:20.00%;background:var(--serie-1)"></span></span><span class="b-val">2</span></div><div class="barre" tabindex="0" data-info="6. Décision du responsable RH · Assistant(e) RH (OFF-2026-01) : 2 · Technicien(ne) électricien(ne) (OFF-2026-02) : 0 · Total : 2" aria-label="6. Décision du responsable RH · Assistant(e) RH (OFF-2026-01) : 2 · Technicien(ne) électricien(ne) (OFF-2026-02) : 0 · Total : 2"><span class="b-lib">6. Décision du responsable RH</span><span class="b-piste"><span class="seg" style="width:20.00%;background:var(--serie-1)"></span></span><span class="b-val">2</span></div><div class="barre" tabindex="0" data-info="7. Offre et contractualisation · Assistant(e) RH (OFF-2026-01) : 1 · Technicien(ne) électricien(ne) (OFF-2026-02) : 0 · Total : 1" aria-label="7. Offre et contractualisation · Assistant(e) RH (OFF-2026-01) : 1 · Technicien(ne) électricien(ne) (OFF-2026-02) : 0 · Total : 1"><span class="b-lib">7. Offre et contractualisation</span><span class="b-piste"><span class="seg" style="width:10.00%;background:var(--serie-1)"></span></span><span class="b-val">1</span></div><div class="barre" tabindex="0" data-info="8. Intégration · Assistant(e) RH (OFF-2026-01) : 0 · Technicien(ne) électricien(ne) (OFF-2026-02) : 0 · Total : 0" aria-label="8. Intégration · Assistant(e) RH (OFF-2026-01) : 0 · Technicien(ne) électricien(ne) (OFF-2026-02) : 0 · Total : 0"><span class="b-lib">8. Intégration</span><span class="b-piste"></span><span class="b-val">0</span></div></div><p class="note">Nombre de candidatures ayant franchi chaque étape (un désistement ne compte pas). Les décisions sont prises par des personnes ; ce graphique ne classe pas les candidats.</p><details class="donnees"><summary>Voir les données</summary><div class="defile"><table><thead><tr><th scope="col">Étape</th><th scope="col">Assistant(e) RH</th><th scope="col">Technicien(ne) électricien(ne)</th><th scope="col">Total</th><th scope="col">Dossiers en cours à cette étape</th></tr></thead><tbody><tr><td>1. Candidature reçue</td><td>5</td><td>5</td><td>10</td><td>0</td></tr><tr><td>2. Présélection</td><td>5</td><td>5</td><td>10</td><td>0</td></tr><tr><td>3. Convocation au test</td><td>3</td><td>4</td><td>7</td><td>3</td></tr><tr><td>4. Test réalisé</td><td>3</td><td>0</td><td>3</td><td>0</td></tr><tr><td>5. Vérification des références</td><td>2</td><td>0</td><td>2</td><td>0</td></tr><tr><td>6. Décision du responsable RH</td><td>2</td><td>0</td><td>2</td><td>0</td></tr><tr><td>7. Offre et contractualisation</td><td>1</td><td>0</td><td>1</td><td>0</td></tr><tr><td>8. Intégration</td><td>0</td><td>0</td><td>0</td><td>0</td></tr></tbody></table></div></details></section>
+    <section class="carte"><h2>Absences : jours ouvrables par catégorie</h2><div class="barres"><div class="barre" tabindex="0" data-info="Congé annuel · Jours : 455" aria-label="Congé annuel · Jours : 455"><span class="b-lib">Congé annuel</span><span class="b-piste"><span class="seg" style="width:100.00%;background:var(--serie-1)"></span></span><span class="b-val">455</span></div><div class="barre" tabindex="0" data-info="Absence justifiée (motif confidentiel) · Jours : 159" aria-label="Absence justifiée (motif confidentiel) · Jours : 159"><span class="b-lib">Absence justifiée (motif confidentiel)</span><span class="b-piste"><span class="seg" style="width:34.95%;background:var(--serie-1)"></span></span><span class="b-val">159</span></div><div class="barre" tabindex="0" data-info="Congé de circonstance · Jours : 16" aria-label="Congé de circonstance · Jours : 16"><span class="b-lib">Congé de circonstance</span><span class="b-piste"><span class="seg" style="width:3.52%;background:var(--serie-1)"></span></span><span class="b-val">16</span></div><div class="barre" tabindex="0" data-info="Absence non justifiée · Jours : 2" aria-label="Absence non justifiée · Jours : 2"><span class="b-lib">Absence non justifiée</span><span class="b-piste"><span class="seg" style="width:0.44%;background:var(--serie-1)"></span></span><span class="b-val">2</span></div></div><p class="note">Absences approuvées ou constatées du 01/01/2026 au 31/10/2026. Les motifs de santé sont regroupés sous une catégorie confidentielle.</p><details class="donnees"><summary>Voir les données</summary><div class="defile"><table><thead><tr><th scope="col">Catégorie</th><th scope="col">Jours ouvrables</th></tr></thead><tbody><tr><td>Congé annuel</td><td>455</td></tr><tr><td>Absence justifiée (motif confidentiel)</td><td>159</td></tr><tr><td>Congé de circonstance</td><td>16</td></tr><tr><td>Absence non justifiée</td><td>2</td></tr></tbody></table></div></details></section>
+    <section class="carte"><h2>CDD à échéance sous 30 jours</h2><div class="defile"><table><thead><tr><th scope="col">Matricule</th><th scope="col">Nom</th><th scope="col">Poste</th><th scope="col">Fin</th><th scope="col" class="num">Jours</th></tr></thead><tbody><tr><td>EMP-009</td><td>Divine Shabani</td><td>Logisticien(ne)</td><td>03/11/2026</td><td class="num">3</td></tr><tr><td>EMP-021</td><td>Imani Lwaboshi</td><td>Technicien(ne) électricien(ne)</td><td>04/11/2026</td><td class="num">4</td></tr><tr><td>EMP-007</td><td>Rachel Safari</td><td>Comptable</td><td>30/11/2026</td><td class="num">30</td></tr></tbody></table></div><p class="note decision">Alerte indicative : toute décision contractuelle (renouvellement, fin de contrat) appartient au responsable RH.</p></section>
+    <section class="carte large"><h2>Insights RH</h2><div class="insights"><article class="insight"><div class="i-tete"><span class="badge serieux"><span aria-hidden="true">⚠</span> Attention</span><span class="i-theme">Contrats</span></div><h3>Échéances de CDD concentrées sur les prochaines semaines</h3><div class="i-val">3 / 7</div><p>3 des 7 CDD en cours se terminent dans les 30 jours (4 dans les 90 jours). Première échéance : 03/11/2026, dans 3 jours.</p><p class="i-piste"><strong>Piste :</strong> Préparer dès maintenant les dossiers (avis du responsable hiérarchique, besoins du service) pour que le responsable RH décide avant chaque échéance.</p></article><article class="insight"><div class="i-tete"><span class="badge serieux"><span aria-hidden="true">⚠</span> Attention</span><span class="i-theme">Organisation</span></div><h3>Actions administratives en retard</h3><div class="i-val">1</div><p>1 action(s) ont dépassé leur échéance ; la plus ancienne de 46 jours. Domaine(s) concerné(s) : Recrutement.</p><p class="i-piste"><strong>Piste :</strong> Traiter ces actions en priorité et ajouter un point hebdomadaire de suivi des échéances.</p></article><article class="insight"><div class="i-tete"><span class="badge vigilance"><span aria-hidden="true">◔</span> À suivre</span><span class="i-theme">Effectifs</span></div><h3>Département le plus dépendant des CDD</h3><div class="i-val">40 %</div><p>Commercial et service client : 2 CDD sur 5 personnes (40 %), contre 26 % pour l&#x27;ensemble de l&#x27;effectif. Calcul limité aux départements d&#x27;au moins 3 personnes.</p><p class="i-piste"><strong>Piste :</strong> Vérifier avec le responsable du département si ces postes correspondent à des besoins temporaires ou permanents.</p></article><article class="insight"><div class="i-tete"><span class="badge vigilance"><span aria-hidden="true">◔</span> À suivre</span><span class="i-theme">Effectifs</span></div><h3>Rotation du personnel depuis janvier</h3><div class="i-val">10,8 %</div><p>3 sortie(s) et 4 entrée(s) en 10 mois, pour un effectif moyen de 27,7 personnes. 2 des 3 sorties concernent le département Opérations techniques.</p><p class="i-piste"><strong>Piste :</strong> Proposer un court entretien de départ systématique pour comprendre les causes, sans en tirer de conclusion sur un cas isolé.</p></article><article class="insight"><div class="i-tete"><span class="badge neutre"><span aria-hidden="true">ℹ</span> Information</span><span class="i-theme">Absences</span></div><h3>Absences non planifiées</h3><div class="i-val">1,5 %</div><p>91 jours d&#x27;absence non planifiés sur 6053 jours travaillables depuis le 1er janvier (absences pour raison de santé et absences non justifiées, congés exclus).</p><p class="i-piste"><strong>Piste :</strong> Suivre ce taux chaque mois ; une hausse durable justifie un échange collectif sur les conditions de travail, jamais un contrôle individuel des motifs.</p></article><article class="insight"><div class="i-tete"><span class="badge neutre"><span aria-hidden="true">ℹ</span> Information</span><span class="i-theme">Absences</span></div><h3>Mois le plus chargé en congés annuels</h3><div class="i-val">mars 2026</div><p>86 jours de congé annuel en mars 2026, soit 19 % des 455 jours pris depuis janvier.</p><p class="i-piste"><strong>Piste :</strong> Établir un planning prévisionnel des congés par service pour garantir la continuité pendant les périodes chargées.</p></article><article class="insight"><div class="i-tete"><span class="badge neutre"><span aria-hidden="true">ℹ</span> Information</span><span class="i-theme">Recrutement</span></div><h3>Efficacité du processus de recrutement</h3><div class="i-val">70 %</div><p>7 des 10 candidatures examinées en présélection ont été convoquées au test. Délai moyen entre la candidature et la décision du responsable RH : 38 jours. Sources à égalité parmi les convocations : Bouche-à-oreille, Site carrières, Université (2 chacune sur 7).</p><p class="i-piste"><strong>Piste :</strong> Comparer ce délai à l&#x27;objectif fixé par le responsable RH et conserver les canaux de diffusion qui apportent des profils adaptés.</p></article></div><p class="note">Constats calculés automatiquement à partir des données, présentés de façon agrégée. Les pistes sont des suggestions : la décision appartient au responsable RH.</p></section>
+    <section class="carte large">
+      <h2>Actions administratives à effectuer</h2>
+      <ul class="legende"><li><span class="badge critique"><span aria-hidden="true">⛔</span> En retard</span></li><li><span class="badge serieux"><span aria-hidden="true">⚠</span> Sous 7 jours</span></li><li><span class="badge vigilance"><span aria-hidden="true">◷</span> Sous 30 jours</span></li><li><span class="badge neutre"><span aria-hidden="true">◔</span> Plus tard</span></li><li><span class="badge neutre"><span aria-hidden="true">–</span> Sans date fixée</span></li></ul>
+      <div class="defile"><table>
+        <thead><tr><th scope="col">Urgence</th><th scope="col">Échéance</th><th scope="col">Domaine</th>
+        <th scope="col">Objet</th><th scope="col">Action</th><th scope="col">Responsable</th></tr></thead>
+        <tbody><tr><td><span class="badge critique"><span aria-hidden="true">⛔</span> En retard</span></td><td>15/09/2026</td><td>Recrutement</td><td>CAND-005 · Annie Kitoko (OFF-2026-01)</td><td class="texte">Envoyer la réponse écrite au candidat</td><td>Chargé(e) RH</td></tr><tr><td><span class="badge serieux"><span aria-hidden="true">⚠</span> Sous 7 jours</span></td><td>02/11/2026</td><td>Recrutement</td><td>CAND-001 · Rebecca Nabintu (OFF-2026-01)</td><td class="texte">Préparer l&#x27;intégration (checklist) et enregistrer l&#x27;arrivée</td><td>Chargé(e) RH</td></tr><tr><td><span class="badge serieux"><span aria-hidden="true">⚠</span> Sous 7 jours</span></td><td>02/11/2026</td><td>Stagiaires</td><td>STG-006 · Daniel Mastaki</td><td class="texte">Préparer l&#x27;accueil (poste, encadreur, convention signée)</td><td>Chargé(e) RH</td></tr><tr><td><span class="badge serieux"><span aria-hidden="true">⚠</span> Sous 7 jours</span></td><td>03/11/2026</td><td>Contrats</td><td>EMP-009 · Divine Shabani</td><td class="texte">Préparer le dossier de fin de CDD (renouvellement ou fin) pour décision du responsable RH</td><td>Responsable RH</td></tr><tr><td><span class="badge serieux"><span aria-hidden="true">⚠</span> Sous 7 jours</span></td><td>04/11/2026</td><td>Contrats</td><td>EMP-021 · Imani Lwaboshi</td><td class="texte">Préparer le dossier de fin de CDD (renouvellement ou fin) pour décision du responsable RH</td><td>Responsable RH</td></tr><tr><td><span class="badge serieux"><span aria-hidden="true">⚠</span> Sous 7 jours</span></td><td>04/11/2026</td><td>Recrutement</td><td>CAND-006 · Trésor Bashizi (OFF-2026-02)</td><td class="texte">Faire passer le test et l&#x27;entretien le 04/11 à 08:30, puis enregistrer la grille</td><td>Comité de recrutement</td></tr><tr><td><span class="badge serieux"><span aria-hidden="true">⚠</span> Sous 7 jours</span></td><td>04/11/2026</td><td>Recrutement</td><td>CAND-007 · Prisca Mulonda (OFF-2026-02)</td><td class="texte">Faire passer le test et l&#x27;entretien le 04/11 à 11:00, puis enregistrer la grille</td><td>Comité de recrutement</td></tr><tr><td><span class="badge serieux"><span aria-hidden="true">⚠</span> Sous 7 jours</span></td><td>05/11/2026</td><td>Recrutement</td><td>CAND-008 · Kevin Murhula (OFF-2026-02)</td><td class="texte">Faire passer le test et l&#x27;entretien le 05/11 à 08:30, puis enregistrer la grille</td><td>Comité de recrutement</td></tr><tr><td><span class="badge vigilance"><span aria-hidden="true">◷</span> Sous 30 jours</span></td><td>16/11/2026</td><td>Congés</td><td>EMP-014 · Ruth Mushagalusa</td><td class="texte">Traiter la demande (congé annuel, 10 jours ouvrables)</td><td>Responsable hiérarchique</td></tr><tr><td><span class="badge vigilance"><span aria-hidden="true">◷</span> Sous 30 jours</span></td><td>30/11/2026</td><td>Contrats</td><td>EMP-007 · Rachel Safari</td><td class="texte">Préparer le dossier de fin de CDD (renouvellement ou fin) pour décision du responsable RH</td><td>Responsable RH</td></tr><tr><td><span class="badge neutre"><span aria-hidden="true">◔</span> Plus tard</span></td><td>04/01/2027</td><td>Contrats</td><td>EMP-016 · Aline Zihindula</td><td class="texte">Préparer le dossier de fin de CDD (renouvellement ou fin) pour décision du responsable RH</td><td>Responsable RH</td></tr></tbody>
+      </table></div>
+      <p class="note">Tâches issues des contrats, des congés, des stagiaires et du recrutement, triées par urgence.
+      Elles préparent des décisions qui restent humaines.</p>
+    </section>
+  </div>
+</main>
+<footer>
+  <p>Méthode : chaque chiffre est recalculé à partir des fichiers de data/raw lors de la génération de la page
+  (python dashboard/generer_tableau_de_bord.py). Ce fichier contient des données personnelles, ici fictives ;
+  en situation réelle, il doit être conservé sur un espace à accès restreint.</p>
+</footer>
+</div>
+<div id="infobulle" role="tooltip" hidden></div>
+<script type="text/plain" id="csv-indicateurs">Date de situation;Rubrique;Indicateur;Valeur
+2026-10-31;Effectif;Effectif actif;27
+2026-10-31;Contrats;CDD arrivant à échéance sous 30 jours;3
+2026-10-31;Stagiaires;Stagiaires suivis;6
+2026-10-31;Absences;Absences et demandes enregistrées;98
+2026-10-31;Absences;Jours ouvrables d&#x27;absence réalisés;632
+2026-10-31;Recrutement;Candidatures;10
+2026-10-31;Actions;Actions administratives à effectuer;11
+2026-10-31;Effectif par département;Opérations techniques : CDI;5
+2026-10-31;Effectif par département;Opérations techniques : CDD;2
+2026-10-31;Effectif par département;Logistique : CDI;5
+2026-10-31;Effectif par département;Logistique : CDD;1
+2026-10-31;Effectif par département;Commercial et service client : CDI;3
+2026-10-31;Effectif par département;Commercial et service client : CDD;2
+2026-10-31;Effectif par département;Finance : CDI;2
+2026-10-31;Effectif par département;Finance : CDD;1
+2026-10-31;Effectif par département;Direction : CDI;2
+2026-10-31;Effectif par département;Direction : CDD;0
+2026-10-31;Effectif par département;Ressources humaines : CDI;1
+2026-10-31;Effectif par département;Ressources humaines : CDD;1
+2026-10-31;Effectif par département;Informatique : CDI;1
+2026-10-31;Effectif par département;Informatique : CDD;0
+2026-10-31;Effectif par département;Services généraux : CDI;1
+2026-10-31;Effectif par département;Services généraux : CDD;0
+2026-10-31;Jours d&#x27;absence par catégorie;Congé annuel;455
+2026-10-31;Jours d&#x27;absence par catégorie;Absence justifiée (motif confidentiel);159
+2026-10-31;Jours d&#x27;absence par catégorie;Congé de circonstance;16
+2026-10-31;Jours d&#x27;absence par catégorie;Absence non justifiée;2
+2026-10-31;Candidatures ayant franchi l&#x27;étape (OFF-2026-01);1. Candidature reçue;5
+2026-10-31;Candidatures ayant franchi l&#x27;étape (OFF-2026-01);2. Présélection;5
+2026-10-31;Candidatures ayant franchi l&#x27;étape (OFF-2026-01);3. Convocation au test;3
+2026-10-31;Candidatures ayant franchi l&#x27;étape (OFF-2026-01);4. Test réalisé;3
+2026-10-31;Candidatures ayant franchi l&#x27;étape (OFF-2026-01);5. Vérification des références;2
+2026-10-31;Candidatures ayant franchi l&#x27;étape (OFF-2026-01);6. Décision du responsable RH;2
+2026-10-31;Candidatures ayant franchi l&#x27;étape (OFF-2026-01);7. Offre et contractualisation;1
+2026-10-31;Candidatures ayant franchi l&#x27;étape (OFF-2026-01);8. Intégration;0
+2026-10-31;Candidatures ayant franchi l&#x27;étape (OFF-2026-02);1. Candidature reçue;5
+2026-10-31;Candidatures ayant franchi l&#x27;étape (OFF-2026-02);2. Présélection;5
+2026-10-31;Candidatures ayant franchi l&#x27;étape (OFF-2026-02);3. Convocation au test;4
+2026-10-31;Candidatures ayant franchi l&#x27;étape (OFF-2026-02);4. Test réalisé;0
+2026-10-31;Candidatures ayant franchi l&#x27;étape (OFF-2026-02);5. Vérification des références;0
+2026-10-31;Candidatures ayant franchi l&#x27;étape (OFF-2026-02);6. Décision du responsable RH;0
+2026-10-31;Candidatures ayant franchi l&#x27;étape (OFF-2026-02);7. Offre et contractualisation;0
+2026-10-31;Candidatures ayant franchi l&#x27;étape (OFF-2026-02);8. Intégration;0
+</script>
+<script type="text/plain" id="csv-actions">Urgence;Échéance;Domaine;Objet;Action;Responsable
+En retard;2026-09-15;Recrutement;CAND-005 · Annie Kitoko (OFF-2026-01);Envoyer la réponse écrite au candidat;Chargé(e) RH
+Sous 7 jours;2026-11-02;Recrutement;CAND-001 · Rebecca Nabintu (OFF-2026-01);Préparer l&#x27;intégration (checklist) et enregistrer l&#x27;arrivée;Chargé(e) RH
+Sous 7 jours;2026-11-02;Stagiaires;STG-006 · Daniel Mastaki;Préparer l&#x27;accueil (poste, encadreur, convention signée);Chargé(e) RH
+Sous 7 jours;2026-11-03;Contrats;EMP-009 · Divine Shabani;Préparer le dossier de fin de CDD (renouvellement ou fin) pour décision du responsable RH;Responsable RH
+Sous 7 jours;2026-11-04;Contrats;EMP-021 · Imani Lwaboshi;Préparer le dossier de fin de CDD (renouvellement ou fin) pour décision du responsable RH;Responsable RH
+Sous 7 jours;2026-11-04;Recrutement;CAND-006 · Trésor Bashizi (OFF-2026-02);Faire passer le test et l&#x27;entretien le 04/11 à 08:30, puis enregistrer la grille;Comité de recrutement
+Sous 7 jours;2026-11-04;Recrutement;CAND-007 · Prisca Mulonda (OFF-2026-02);Faire passer le test et l&#x27;entretien le 04/11 à 11:00, puis enregistrer la grille;Comité de recrutement
+Sous 7 jours;2026-11-05;Recrutement;CAND-008 · Kevin Murhula (OFF-2026-02);Faire passer le test et l&#x27;entretien le 05/11 à 08:30, puis enregistrer la grille;Comité de recrutement
+Sous 30 jours;2026-11-16;Congés;EMP-014 · Ruth Mushagalusa;Traiter la demande (congé annuel, 10 jours ouvrables);Responsable hiérarchique
+Sous 30 jours;2026-11-30;Contrats;EMP-007 · Rachel Safari;Préparer le dossier de fin de CDD (renouvellement ou fin) pour décision du responsable RH;Responsable RH
+Plus tard;2027-01-04;Contrats;EMP-016 · Aline Zihindula;Préparer le dossier de fin de CDD (renouvellement ou fin) pour décision du responsable RH;Responsable RH
+</script>
+<script>
+// Export CSV : le contenu est préparé par Python ; le navigateur le propose en téléchargement.
+document.querySelectorAll('[data-export]').forEach(b => b.addEventListener('click', () => {
+  const texte = document.getElementById(b.dataset.export).textContent.replace(/\r?\n/g, '\r\n');
+  const blob = new Blob(['\ufeff' + texte], { type: 'text/csv;charset=utf-8' });
+  const lien = document.createElement('a');
+  lien.href = URL.createObjectURL(blob);
+  lien.download = b.dataset.fichier;
+  document.body.appendChild(lien); lien.click(); lien.remove();
+  setTimeout(() => URL.revokeObjectURL(lien.href), 1000);
+}));
+document.getElementById('imprimer').addEventListener('click', () => {
+  document.querySelectorAll('details').forEach(d => d.open = true);
+  window.print();
+});
+// Infobulle au survol ou au focus clavier d'une barre
+const bulle = document.getElementById('infobulle');
+function montrer(el, x, y) {
+  bulle.textContent = el.dataset.info; bulle.hidden = false;
+  const l = Math.min(x + 12, window.innerWidth - bulle.offsetWidth - 8);
+  bulle.style.left = Math.max(8, l) + 'px'; bulle.style.top = (y + 14) + 'px';
+}
+document.querySelectorAll('.barre').forEach(el => {
+  el.addEventListener('mousemove', e => montrer(el, e.clientX, e.clientY));
+  el.addEventListener('mouseleave', () => bulle.hidden = true);
+  el.addEventListener('focus', () => { const r = el.getBoundingClientRect(); montrer(el, r.left + r.width / 2, r.bottom - 10); });
+  el.addEventListener('blur', () => bulle.hidden = true);
+});
+</script>
+</body>
+</html>

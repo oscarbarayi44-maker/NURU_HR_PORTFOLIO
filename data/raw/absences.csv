@@ -1,0 +1,99 @@
+﻿absence_id;matricule;type_absence;date_debut;date_fin;nb_jours_ouvrables;statut
+ABS-0001;EMP-016;Maladie;2026-01-07;2026-01-08;2;Approuvée
+ABS-0002;EMP-005;Maladie;2026-01-08;2026-01-13;4;Approuvée
+ABS-0003;EMP-008;Maladie;2026-01-08;2026-01-13;4;Approuvée
+ABS-0004;EMP-017;Maladie;2026-01-14;2026-01-15;2;Approuvée
+ABS-0005;EMP-021;Maladie;2026-01-20;2026-01-23;4;Approuvée
+ABS-0006;EMP-006;Congé annuel;2026-01-23;2026-01-30;6;Approuvée
+ABS-0007;EMP-009;Congé annuel;2026-01-27;2026-02-10;11;Approuvée
+ABS-0008;EMP-019;Congé annuel;2026-02-02;2026-02-10;7;Approuvée
+ABS-0009;EMP-007;Maladie;2026-02-13;2026-02-17;3;Approuvée
+ABS-0010;EMP-018;Congé annuel;2026-02-19;2026-02-27;7;Approuvée
+ABS-0011;EMP-027;Maladie;2026-02-19;2026-02-24;4;Approuvée
+ABS-0012;EMP-025;Congé annuel;2026-02-27;2026-03-05;5;Approuvée
+ABS-0013;EMP-019;Congé de maternité;2026-03-02;2026-06-07;70;Approuvée
+ABS-0014;EMP-023;Congé annuel;2026-03-03;2026-03-17;11;Approuvée
+ABS-0015;EMP-010;Congé annuel;2026-03-04;2026-03-17;10;Approuvée
+ABS-0016;EMP-021;Congé annuel;2026-03-04;2026-03-16;9;Approuvée
+ABS-0017;EMP-024;Congé annuel;2026-03-04;2026-03-16;9;Approuvée
+ABS-0018;EMP-007;Congé annuel;2026-03-11;2026-03-26;12;Approuvée
+ABS-0019;EMP-008;Congé annuel;2026-03-11;2026-03-19;7;Approuvée
+ABS-0020;EMP-026;Congé annuel;2026-03-11;2026-03-18;6;Approuvée
+ABS-0021;EMP-013;Congé annuel;2026-03-12;2026-03-23;8;Approuvée
+ABS-0022;EMP-005;Maladie;2026-03-16;2026-03-19;4;Approuvée
+ABS-0023;EMP-011;Congé annuel;2026-03-20;2026-03-30;7;Approuvée
+ABS-0024;EMP-012;Congé annuel;2026-03-30;2026-04-08;8;Approuvée
+ABS-0025;EMP-015;Congé annuel;2026-03-31;2026-04-13;10;Approuvée
+ABS-0026;EMP-030;Congé annuel;2026-04-02;2026-04-10;7;Approuvée
+ABS-0027;EMP-020;Congé de circonstance;2026-04-06;2026-04-07;2;Approuvée
+ABS-0028;EMP-005;Congé annuel;2026-04-10;2026-04-17;6;Approuvée
+ABS-0029;EMP-003;Congé annuel;2026-04-13;2026-04-28;12;Approuvée
+ABS-0030;EMP-017;Maladie;2026-04-21;2026-04-23;3;Approuvée
+ABS-0031;EMP-016;Maladie;2026-04-24;2026-04-28;3;Approuvée
+ABS-0032;EMP-029;Maladie;2026-04-27;2026-04-28;2;Approuvée
+ABS-0033;EMP-011;Maladie;2026-04-30;2026-05-04;3;Approuvée
+ABS-0034;EMP-006;Congé annuel;2026-05-07;2026-05-14;6;Approuvée
+ABS-0035;EMP-002;Maladie;2026-05-18;2026-05-19;2;Approuvée
+ABS-0036;EMP-017;Congé de circonstance;2026-05-18;2026-05-20;3;Approuvée
+ABS-0037;EMP-024;Absence non justifiée;2026-05-18;2026-05-18;1;Constatée
+ABS-0038;EMP-014;Congé annuel;2026-05-20;2026-05-28;7;Approuvée
+ABS-0039;EMP-018;Maladie;2026-05-22;2026-05-26;3;Approuvée
+ABS-0040;EMP-015;Maladie;2026-05-28;2026-06-02;4;Approuvée
+ABS-0041;EMP-003;Maladie;2026-05-29;2026-05-29;1;Approuvée
+ABS-0042;EMP-022;Congé annuel;2026-06-05;2026-06-18;10;Approuvée
+ABS-0043;EMP-006;Maladie;2026-06-10;2026-06-11;2;Approuvée
+ABS-0044;EMP-019;Congé annuel;2026-06-11;2026-06-18;6;Approuvée
+ABS-0045;EMP-021;Maladie;2026-06-11;2026-06-15;3;Approuvée
+ABS-0046;EMP-030;Congé annuel;2026-06-11;2026-06-25;11;Approuvée
+ABS-0047;EMP-009;Congé de circonstance;2026-06-17;2026-06-19;3;Approuvée
+ABS-0048;EMP-026;Maladie;2026-06-18;2026-06-22;3;Approuvée
+ABS-0049;EMP-017;Congé annuel;2026-06-19;2026-07-06;12;Refusée
+ABS-0050;EMP-024;Congé annuel;2026-06-19;2026-07-01;9;Approuvée
+ABS-0051;EMP-009;Congé annuel;2026-06-30;2026-07-13;10;Approuvée
+ABS-0052;EMP-006;Maladie;2026-07-02;2026-07-06;3;Approuvée
+ABS-0053;EMP-018;Congé annuel;2026-07-02;2026-07-16;11;Approuvée
+ABS-0054;EMP-023;Maladie;2026-07-02;2026-07-06;3;Approuvée
+ABS-0055;EMP-005;Congé annuel;2026-07-09;2026-07-24;12;Approuvée
+ABS-0056;EMP-026;Congé annuel;2026-07-13;2026-07-21;7;Approuvée
+ABS-0057;EMP-014;Maladie;2026-07-16;2026-07-16;1;Approuvée
+ABS-0058;EMP-020;Congé annuel;2026-07-16;2026-07-28;9;Approuvée
+ABS-0059;EMP-029;Congé annuel;2026-07-23;2026-07-29;5;Approuvée
+ABS-0060;EMP-011;Absence non justifiée;2026-08-03;2026-08-03;1;Constatée
+ABS-0061;EMP-002;Maladie;2026-08-10;2026-08-13;4;Approuvée
+ABS-0062;EMP-003;Maladie;2026-08-11;2026-08-14;4;Approuvée
+ABS-0063;EMP-011;Congé annuel;2026-08-11;2026-08-20;8;Approuvée
+ABS-0064;EMP-023;Maladie;2026-08-12;2026-08-12;1;Approuvée
+ABS-0065;EMP-004;Congé annuel;2026-08-13;2026-08-20;6;Approuvée
+ABS-0066;EMP-010;Congé annuel;2026-08-19;2026-08-31;9;Approuvée
+ABS-0067;EMP-015;Congé annuel;2026-08-26;2026-09-07;9;Approuvée
+ABS-0068;EMP-003;Congé annuel;2026-08-27;2026-09-08;9;Approuvée
+ABS-0069;EMP-007;Congé annuel;2026-08-31;2026-09-09;8;Approuvée
+ABS-0070;EMP-004;Congé annuel;2026-09-03;2026-09-15;9;Approuvée
+ABS-0071;EMP-029;Congé de circonstance;2026-09-03;2026-09-07;3;Approuvée
+ABS-0072;EMP-001;Congé annuel;2026-09-04;2026-09-11;6;Approuvée
+ABS-0073;EMP-016;Congé annuel;2026-09-08;2026-09-21;10;Approuvée
+ABS-0074;EMP-002;Congé annuel;2026-09-14;2026-09-24;9;Approuvée
+ABS-0075;EMP-023;Congé annuel;2026-09-14;2026-09-25;10;Approuvée
+ABS-0076;EMP-007;Maladie;2026-09-16;2026-09-17;2;Approuvée
+ABS-0077;EMP-008;Congé annuel;2026-09-17;2026-09-29;9;Approuvée
+ABS-0078;EMP-018;Maladie;2026-09-17;2026-09-18;2;Approuvée
+ABS-0079;EMP-030;Maladie;2026-09-21;2026-09-21;1;Approuvée
+ABS-0080;EMP-030;Maladie;2026-09-24;2026-09-28;3;Approuvée
+ABS-0081;EMP-001;Congé annuel;2026-09-25;2026-10-01;5;Approuvée
+ABS-0082;EMP-002;Congé de circonstance;2026-09-25;2026-09-28;2;Approuvée
+ABS-0083;EMP-013;Congé annuel;2026-09-29;2026-10-08;8;Approuvée
+ABS-0084;EMP-014;Congé annuel;2026-09-30;2026-10-14;11;Approuvée
+ABS-0085;EMP-016;Congé annuel;2026-10-01;2026-10-16;12;Approuvée
+ABS-0086;EMP-028;Congé annuel;2026-10-01;2026-10-15;11;Approuvée
+ABS-0087;EMP-029;Congé annuel;2026-10-05;2026-10-13;7;Approuvée
+ABS-0088;EMP-012;Congé annuel;2026-10-06;2026-10-12;5;Approuvée
+ABS-0089;EMP-002;Congé annuel;2026-10-07;2026-10-14;6;Approuvée
+ABS-0090;EMP-005;Congé de circonstance;2026-10-07;2026-10-09;3;Approuvée
+ABS-0091;EMP-017;Congé annuel;2026-10-07;2026-10-21;11;Approuvée
+ABS-0092;EMP-011;Maladie;2026-10-08;2026-10-08;1;Approuvée
+ABS-0093;EMP-021;Congé annuel;2026-10-15;2026-10-22;6;Approuvée
+ABS-0094;EMP-025;Congé annuel;2026-10-15;2026-10-28;10;Approuvée
+ABS-0095;EMP-010;Maladie;2026-10-20;2026-10-23;4;Approuvée
+ABS-0096;EMP-024;Maladie;2026-10-27;2026-10-30;4;Approuvée
+ABS-0097;EMP-014;Congé annuel;2026-11-16;2026-11-27;10;En attente
+ABS-0098;EMP-008;Congé annuel;2026-12-14;2026-12-25;10;Approuvée

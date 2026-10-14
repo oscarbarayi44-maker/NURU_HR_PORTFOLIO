@@ -1,0 +1,37 @@
+﻿evenement_id;candidature_id;etape;date;resultat;intervenant;note_grille_sur_20;commentaire
+EVT-001;CAND-001;1;2026-08-20;Validée;Chargé(e) RH;;Dossier complet
+EVT-002;CAND-001;2;2026-09-08;Validée;Comité de recrutement;16;Grille d'analyse du CV
+EVT-003;CAND-001;3;2026-09-10;Validée;Chargé(e) RH;;Convocation envoyée pour le 17/09/2026
+EVT-004;CAND-001;4;2026-09-17;Validée;Comité de recrutement;16;Test écrit et entretien structuré
+EVT-005;CAND-001;5;2026-09-24;Validée;Chargé(e) RH;;2 références contactées avec l'accord écrit de la candidate
+EVT-006;CAND-001;6;2026-09-29;Favorable;Responsable RH;;Décision motivée versée au dossier
+EVT-007;CAND-001;7;2026-10-12;Validée;Responsable RH;;Contrat signé, prise de fonction le 02/11/2026
+EVT-008;CAND-002;1;2026-08-25;Validée;Chargé(e) RH;;Dossier complet
+EVT-009;CAND-002;2;2026-09-08;Validée;Comité de recrutement;15;Grille d'analyse du CV
+EVT-010;CAND-002;3;2026-09-10;Validée;Chargé(e) RH;;Convocation envoyée pour le 17/09/2026
+EVT-011;CAND-002;4;2026-09-17;Validée;Comité de recrutement;13;Test écrit et entretien structuré
+EVT-012;CAND-002;5;2026-09-24;Validée;Chargé(e) RH;;2 références contactées avec l'accord écrit du candidat
+EVT-013;CAND-002;6;2026-09-29;Défavorable;Responsable RH;;Décision motivée versée au dossier
+EVT-014;CAND-003;1;2026-08-28;Validée;Chargé(e) RH;;Dossier complet
+EVT-015;CAND-003;2;2026-09-08;Validée;Comité de recrutement;13;Grille d'analyse du CV
+EVT-016;CAND-003;3;2026-09-10;Validée;Chargé(e) RH;;Convocation envoyée pour le 17/09/2026
+EVT-017;CAND-003;4;2026-09-17;Non retenu(e);Comité de recrutement;9;Compétences attendues non démontrées au test
+EVT-018;CAND-004;1;2026-09-01;Validée;Chargé(e) RH;;Dossier complet
+EVT-019;CAND-004;2;2026-09-08;Non retenu(e);Comité de recrutement;10;Expérience requise non démontrée
+EVT-020;CAND-005;1;2026-09-03;Validée;Chargé(e) RH;;Dossier complet
+EVT-021;CAND-005;2;2026-09-08;Non retenu(e);Comité de recrutement;8;Diplôme requis absent
+EVT-022;CAND-006;1;2026-09-10;Validée;Chargé(e) RH;;Dossier complet
+EVT-023;CAND-006;2;2026-10-02;Validée;Comité de recrutement;14;Grille d'analyse du CV
+EVT-024;CAND-006;3;2026-10-26;Validée;Chargé(e) RH;;Convocation envoyée pour le 04/11/2026
+EVT-025;CAND-007;1;2026-09-12;Validée;Chargé(e) RH;;Dossier complet
+EVT-026;CAND-007;2;2026-10-02;Validée;Comité de recrutement;17;Grille d'analyse du CV
+EVT-027;CAND-007;3;2026-10-26;Validée;Chargé(e) RH;;Convocation envoyée pour le 04/11/2026
+EVT-028;CAND-008;1;2026-09-15;Validée;Chargé(e) RH;;Dossier complet
+EVT-029;CAND-008;2;2026-10-02;Validée;Comité de recrutement;12;Grille d'analyse du CV
+EVT-030;CAND-008;3;2026-10-26;Validée;Chargé(e) RH;;Convocation envoyée pour le 05/11/2026
+EVT-031;CAND-009;1;2026-09-22;Validée;Chargé(e) RH;;Dossier complet
+EVT-032;CAND-009;2;2026-10-02;Non retenu(e);Comité de recrutement;9;Qualification technique requise absente
+EVT-033;CAND-010;1;2026-09-24;Validée;Chargé(e) RH;;Dossier complet
+EVT-034;CAND-010;2;2026-10-02;Validée;Comité de recrutement;13;Grille d'analyse du CV
+EVT-035;CAND-010;3;2026-10-26;Validée;Chargé(e) RH;;Convocation envoyée pour le 05/11/2026
+EVT-036;CAND-010;4;2026-10-28;Désistement;Chargé(e) RH;;La candidate a accepté un autre poste

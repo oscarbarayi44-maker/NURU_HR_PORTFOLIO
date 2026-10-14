@@ -1,0 +1,11 @@
+﻿candidature_id;offre_id;prenom;nom;date_candidature;source;diplome;annees_experience;autorisation_references;date_autorisation_references;date_reponse_candidat;date_prise_fonction_prevue
+CAND-001;OFF-2026-01;Rebecca;Nabintu;2026-08-20;Site carrières;Licence en GRH;2;Oui;2026-09-17;;2026-11-02
+CAND-002;OFF-2026-01;Samuel;Bwira;2026-08-25;Réseaux sociaux;Licence en Sciences administratives;3;Oui;2026-09-17;2026-10-01;
+CAND-003;OFF-2026-01;Laetitia;Chance;2026-08-28;Bouche-à-oreille;Graduat en Secrétariat;1;;;2026-09-22;
+CAND-004;OFF-2026-01;Fiston;Mulume;2026-09-01;Site carrières;Licence en Économie;0;;;2026-09-10;
+CAND-005;OFF-2026-01;Annie;Kitoko;2026-09-03;Réseaux sociaux;Diplôme d'État;4;;;;
+CAND-006;OFF-2026-02;Trésor;Bashizi;2026-09-10;Université;Graduat en Électricité;1;;;;
+CAND-007;OFF-2026-02;Prisca;Mulonda;2026-09-12;Site carrières;Licence en Génie électrique;2;;;;
+CAND-008;OFF-2026-02;Kevin;Murhula;2026-09-15;Bouche-à-oreille;Graduat en Électricité;3;;;;
+CAND-009;OFF-2026-02;Junior;Cikuru;2026-09-22;Réseaux sociaux;Diplôme d'État (électricité);1;;;2026-10-05;
+CAND-010;OFF-2026-02;Éloïse;Mapenzi;2026-09-24;Université;Graduat en Électricité;0;;;;
