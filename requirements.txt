@@ -1,0 +1,16 @@
+# Dépendances pour la publication sur Streamlit Community Cloud
+# Données fictives – Portfolio personnel, non officiel de Nuru
+#
+# Version identique à celle installée sur le poste de développement (vérifiée le 2026-10-15).
+# Version de Python à choisir dans Streamlit Cloud (Advanced settings) : 3.12.
+streamlit==1.62.0
+
+# Les bibliothèques ci-dessous servent uniquement à régénérer en local le rapport
+# Word/PDF et la présentation (documents/rapports/). Elles ne sont pas nécessaires
+# pour afficher le portfolio en ligne et sont donc volontairement laissées en commentaire :
+# matplotlib==3.11.1
+# python-docx==1.2.0
+# python-pptx==1.0.2
+# reportlab==5.0.1
+# pillow==12.3.0
+# lxml==6.1.2
