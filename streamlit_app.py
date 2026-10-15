@@ -24,6 +24,8 @@ CAPTURES = [
 PROCEDURES = sorted((RACINE / "documents" / "procedures").glob("*.md"))
 RAPPORT_MENSUEL = RACINE / "documents" / "rapports" / "rapport_mensuel_rh_2026-10.md"
 TELECHARGEMENTS = [
+    ("Tableau de bord RH manipulable (Excel)", RACINE / "dashboard" / "tableau_de_bord_rh.xlsx",
+     "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"),
     ("Rapport du projet (PDF)", RACINE / "documents" / "rapports" / "Rapport_projet_NURU_HR_Portfolio.pdf", "application/pdf"),
     ("Rapport du projet (Word)", RACINE / "documents" / "rapports" / "Rapport_projet_NURU_HR_Portfolio.docx",
      "application/vnd.openxmlformats-officedocument.wordprocessingml.document"),
